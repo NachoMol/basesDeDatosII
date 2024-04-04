@@ -7,3 +7,9 @@ WHERE category_id = 3;
 SELECT category_id, COUNT(id), AVG(price)
 FROM products
 GROUP BY category_id;
+
+-- Conocer cuales emails se repiten
+SELECT email , COUNT(id) as "c"
+FROM users
+GROUP BY email
+HAVING c > 1;
