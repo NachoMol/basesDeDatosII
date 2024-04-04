@@ -1,4 +1,4 @@
 -- Traer todos los productos y sus categorias
-SELECT products.name , stock, categories.name
-FROM products
-JOIN categories ON category_id = categories.id;
+SELECT p.name , stock, c.name
+FROM products AS p
+JOIN categories AS c ON category_id = c.id;
