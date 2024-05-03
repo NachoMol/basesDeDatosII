@@ -1,6 +1,6 @@
 -- crear
 DELIMITER $$
-CREATE PROCEDURE sumNumbers(num1 INT, num2 INT)
+CREATE PROCEDURE sumNumbers(IN num1 INT,IN num2 INT)
 BEGIN
 -- instrucciones sql
 
