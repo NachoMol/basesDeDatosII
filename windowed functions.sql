@@ -1,7 +1,8 @@
 -- Obtener un listado de productos y adicionar en cada fila la posicion segun la categoria
 SELECT
 name, category_id
-,ROW_NUMBER() OVER (PARTITION BY category_id order by category_id, name) AS orderByCategory
-, SUM(stock) OVER(PARTITION BY category_id) AS categoryStock
+,ROW_NUMBER() OVER (w order by category_id, name) AS orderByCategory
+, SUM(stock) OVER(w) AS categoryStock
 FROM products
-ORDER BY category_id, name;
+WINDOW w AS (PARTITION BY category_id)
+ORDER BY category_id, name ASC
