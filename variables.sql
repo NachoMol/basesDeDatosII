@@ -17,3 +17,16 @@ END
 DELIMITER ;
 
 CALL addthings();
+
+-- Variables en funciones
+DELIMITER $$
+CREATE FUNCTION avgOfTwoNumbers(num1 INT,  num2 INT)
+RETURNS FLOAT DETERMINISTIC
+BEGIN
+	DECLARE calc FLOAT;
+    SET calc = (num1 + num2) / 2;
+    RETURN calc;
+END
+DELIMITER ;
+
+SELECT avgOfTwoNumbers(10,50);
