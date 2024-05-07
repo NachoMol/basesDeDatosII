@@ -32,3 +32,20 @@ CALL sayHelloNTimes(2);
 DROP PROCEDURE sayHelloNTimes;
 
 -- REPEAT
+DELIMITER $$
+CREATE PROCEDURE sayHelloNTimes(times INT)
+BEGIN
+	DECLARE counter INT DEFAULT 1;
+    
+    REPEAT
+		SELECT "HELLO";
+        SET counter = counter + 1;
+        UNTIL counter > times
+	END REPEAT;
+END $$;
+DELIMITER ;
+CALL sayHelloNTimes(2);
+DROP PROCEDURE sayHelloNTimes;
+
+    
+        
