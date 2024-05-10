@@ -5,3 +5,5 @@ CREATE TEMPORARY TABLE ejemplo (
 INSERT INTO ejemplo VALUES ("test1");
 
 SELECT * FROM ejemplo;
+
+
