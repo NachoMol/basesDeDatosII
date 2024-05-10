@@ -5,6 +5,7 @@ BEGIN
 	DECLARE done INT DEFAULT FALSE;
     DECLARE cart CURSOR FOR SELECT id, product_id, quantity FROM carts WHERE user_id = pUserId;
     DECLARE CONTINUE HANDLER FOR NOT FOUND SET DONE = TRUE;
+    START TRANSACTION;
 	OPEN cart;
 		my_loop: LOOP
 		FETCH cart INTO cartId, pID, quan;
@@ -13,6 +14,7 @@ BEGIN
         DELETE FROM carts WHERE id = cartId;
 		END LOOP;
 	CLOSE cart;
+    COMMIT;
     SELECT "success";
 END $$
 DELIMITER ;
