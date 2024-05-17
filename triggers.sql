@@ -2,7 +2,7 @@ DELIMITER $$
 CREATE TRIGGER setUserPass BEFORE INSERT ON users
 FOR EACH ROW
 BEGIN
-
+	
 	SET NEW.password = NEW.email;
 
 END $$;
